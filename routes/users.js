@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const ROUTES = require('../consts/API');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
+const express = require('express');
+const router = express.Router();
+
+router.get(ROUTES.getUsers, function(req, res, next) {
   res.send('respond with a resource');
 });
 
