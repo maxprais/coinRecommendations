@@ -3,16 +3,34 @@ const ROUTES = require('../consts/API');
 const express = require('express');
 const router = express.Router();
 
-router.get(ROUTES.getAllProducts, function(req, res, next) {
-    res.send('respond with a resource');
+const ProductsDalService = require('../dal/productsDal');
+
+router.get(ROUTES.getAllProducts, async (req, res, next) => {
+    const productsDalService = new ProductsDalService();
+    const allProducts = await productsDalService.getAllProducts();
+
+    res.send(allProducts);
 });
 
-router.get(ROUTES.getProductById, function(req, res, next) {
-    res.send('respond with a resource');
+router.get(ROUTES.getProductById, async (req, res, next) => {
+    const productsDalService = new ProductsDalService();
+    const product = await productsDalService.getAllProducts();
+
+    res.send(product);
 });
 
-router.get(ROUTES.getProductByState, function(req, res, next) {
-    res.send('respond with a resource');
+router.get(ROUTES.getProductsByState, async (req, res, next) => {
+    const productsDalService = new ProductsDalService();
+    const products = await productsDalService.getAllProducts();
+
+    res.send(products);
+});
+
+router.get(ROUTES.getProductsByUser, async (req, res, next) => {
+    const productsDalService = new ProductsDalService();
+    const products = await productsDalService.getAllProducts();
+
+    res.send(products);
 });
 
 module.exports = router;
