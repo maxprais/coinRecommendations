@@ -11,7 +11,6 @@ class UserDalService {
                     resolve(users);
                 });
             });
-            db.close();
         });
     }
 

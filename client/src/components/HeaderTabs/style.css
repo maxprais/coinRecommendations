@@ -1,4 +1,14 @@
 .tabs-container {
-    display: block;
+    align-items: center;
+    background-color: #e50277;
+    box-shadow: 0 0 2px 0 #e50277;
+    display: flex;
+    height: 60px;
+    justify-content: center;
     text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }

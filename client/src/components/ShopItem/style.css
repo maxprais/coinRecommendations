@@ -1,10 +1,27 @@
 .shop-item {
-    align-self: start;
+    align-self: stretch;
+    justify-self: stretch;
     position: relative;
+    box-shadow: 1px 2px 6px 1px #d7e0f0;
+    padding: 25px;
+    border-radius: 4px;
+    height: auto;
+    width: auto;
+    transition: box-shadow .5s ease-out;
+}
+
+.shop-item:hover {
+    box-shadow: 1px 2px 6px 2px #e50277;
+}
+
+.shop-item p {
+    color: #696969;
+    font-size: 14px;
 }
 
 .item-title {
     font-size: 2em;
+    color: #444444;
 }
 
 .favourite-icon,

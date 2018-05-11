@@ -7,11 +7,12 @@ class UserProductsDalService {
     getProductsByUser() {
         return new Promise((resolve, reject) => {
             db.serialize(() => {
-                db.each('SELECT name from Users LIMIT 1', (err, users) => {
-                    resolve(users);
-                });
+              `SELECT id, name, description from Products WHERE user_id = ?`
+              const chooseProductStatement =
+                db.prepare(`SELECT product_id from UserProducts WHERE user_id = ?`);
+              chooseProductStatement.run(userId, productId, stateId);
+              chooseProductStatement.finalize();
             });
-            db.close();
         });
     }
 
@@ -19,12 +20,11 @@ class UserProductsDalService {
         return new Promise((resolve, reject) => {
             db.serialize(() => {
                 const chooseProductStatement =
-                  db.prepare(`INSERT INTO UserProducts (user_id, product_id, state_id) VALUES (?, ?, ?)`);
+                  db.prepare(`INSERT OR REPLACE INTO UserProducts (user_id, product_id, state_id) VALUES (?, ?, ?)`);
                 chooseProductStatement.run(userId, productId, stateId);
                 chooseProductStatement.finalize();
                 resolve({ success: true });
             });
-            db.close();
         });
     }
 

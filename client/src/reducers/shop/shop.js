@@ -9,6 +9,8 @@ export const ShopReducer = (state = initialState, action) => {
           return { ...state, shopItems: state.shopItems.concat(action.payload) };
       case PRODUCT_ACTION_TYPES.CHOOSE_PRODUCT:
         return { ...state, productChosen: action.payload.success };
+      case PRODUCT_ACTION_TYPES.RESET_ALERT:
+        return { ...state, productChosen: false };
         default:
             return state;
     }

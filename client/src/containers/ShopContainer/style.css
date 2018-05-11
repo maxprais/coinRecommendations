@@ -1,16 +1,29 @@
 .shop-items-container {
     display: grid;
     grid-template-rows: auto auto auto;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, minmax(200px, auto));
     grid-column-gap: 30px;
     grid-row-gap: 15px;
     justify-items: start;
     align-items: center;
-    padding: 0 50px;
+    padding: 50px;
+    margin: 0 50px;
+    position: relative;
+    top: 50px;
+    box-shadow: 0px 0px 4px 0px #d7e0f0;
+    background-image: url('https://blog.travefy.com/2013/07/beach-etiquette/');
 }
 
-@media (max-width: 720px) {
+@media (max-width: 800px) {
     .shop-items-container {
-        display: block;
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .shop-items-container {
+        margin: 0;
     }
 }

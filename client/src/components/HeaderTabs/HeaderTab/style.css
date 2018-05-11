@@ -1,5 +1,7 @@
 .tab {
   cursor: pointer;
+  color: #ffffff;
   display: inline;
   padding: 0 30px;
+  text-transform: uppercase;
 }

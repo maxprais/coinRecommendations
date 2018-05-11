@@ -12,7 +12,6 @@ class ProductsDalService {
                   resolve(products);
                 });
             });
-            db.close();
         });
     }
 
@@ -23,7 +22,6 @@ class ProductsDalService {
                     resolve(products);
                 });
             });
-            db.close();
         });
     }
 
@@ -34,7 +32,6 @@ class ProductsDalService {
                     resolve(products);
                 });
             });
-            db.close();
         });
     }
 

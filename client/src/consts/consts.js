@@ -1,0 +1,4 @@
+export const PRODUCT_SELECTION_TYPES = {
+  WISHLIST: 0,
+  PURCHASED: 1
+};

@@ -17,3 +17,5 @@ export const chooseProduct = async (stateId, productId) => {
 
   store.dispatch({ type: PRODUCT_ACTION_TYPES.CHOOSE_PRODUCT, payload: notify });
 };
+
+export const resetAlert = () => store.dispatch({ type: 'RESET_ALERT' });
