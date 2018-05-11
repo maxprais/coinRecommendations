@@ -14,9 +14,10 @@ router.get(ROUTES.getProductsByUser, async (req, res, next) => {
 
 router.post(ROUTES.chooseProduct, async (req, res, next) => {
     const userProductsDalService = new UserProductsDalService();
-    const allProducts = await userProductsDalService.chooseProduct();
+    const { userId, productId, stateId } = req.params;
+    const chooseProductSuccess = await userProductsDalService.chooseProduct(userId, productId, stateId);
 
-    res.send(allProducts);
+    res.json(chooseProductSuccess);
 });
 
 module.exports = router;

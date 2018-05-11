@@ -1,20 +1,49 @@
 import React from "react";
 import { connect } from "react-redux";
 import { ShopItem } from '../../components/ShopItem';
+import './style.css';
+import { chooseProduct } from '../../actions/shop';
 
 const mapStateToProps = state => {
-  console.log(state.ShopReducer.shopItems);
-  return { shopItems: state.ShopReducer.shopItems };
+  console.log(state.ShopReducer);
+  return {
+    shopItems: state.ShopReducer.shopItems,
+    productChosen: state.ShopReducer.productChosen
+  };
 };
 
-const ShopContainerElm = ({ shopItems }) => (
-    <div className="row mt-5">
-        <div className="col-md-4 offset-md-1">
-            <h2>Articles</h2>
-            { shopItems.map((value, index) =>
-                <ShopItem key={index} item={value} />) }
-        </div>
-    </div>
-);
+const matchDispatchToProps = () => ({
+  chooseProduct: (selectionType, itemId) => chooseProduct(selectionType, itemId)
+});
 
-export const ShopContainer = connect(mapStateToProps)(ShopContainerElm);
+class ShopContainerElm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.onSelectItem = this.onSelectItem.bind(this);
+  }
+
+  onSelectItem(selectionType, itemId) {
+    console.log(selectionType, itemId);
+    this.props.chooseProduct(selectionType, itemId);
+  }
+
+  componentDidUpdate() {
+    if (this.props.productChosen) {
+      alert('chosen!');
+    }
+  }
+
+  render() {
+    return (
+      <div className="shop-items-container">
+        { this.props.shopItems.map((value, index) =>
+          <ShopItem key={index}
+                    onSelectItem={this.onSelectItem}
+                    item={value} />) }
+      </div>
+    )
+  }
+}
+
+export const ShopContainer = connect(mapStateToProps, matchDispatchToProps)(ShopContainerElm);

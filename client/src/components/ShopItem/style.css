@@ -1,0 +1,23 @@
+.shop-item {
+    align-self: start;
+    position: relative;
+}
+
+.item-title {
+    font-size: 2em;
+}
+
+.favourite-icon,
+.wishlist-icon {
+    cursor: pointer;
+}
+.wishlist-icon:hover {
+    color: pink;
+}
+.favourite-icon:hover {
+    color: red;
+}
+
+.icons {
+    float: right;
+}

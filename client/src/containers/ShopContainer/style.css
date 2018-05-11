@@ -1,0 +1,16 @@
+.shop-items-container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 30px;
+    grid-row-gap: 15px;
+    justify-items: start;
+    align-items: center;
+    padding: 0 50px;
+}
+
+@media (max-width: 720px) {
+    .shop-items-container {
+        display: block;
+    }
+}

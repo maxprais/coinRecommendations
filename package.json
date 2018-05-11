@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently --kill-others-on-fail \"nodemon app.js\" \"cd client && npm start\" "
+    "start": "concurrently --kill-others-on-fail \"nodemon app.js\" \"cd client && npm start\" ",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "dependencies": {
     "concurrently": "^3.5.1",
@@ -14,6 +16,7 @@
     "lodash": "^4.17.10",
     "morgan": "~1.9.0",
     "pug": "2.0.0-beta11",
+    "react-router-dom": "^4.2.2",
     "sqlite3": "^4.0.0"
   }
 }

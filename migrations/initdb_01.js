@@ -44,10 +44,10 @@ db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS UserProducts (
         user_id INTEGER,
         product_id INTEGER,
-        state INTEGER,
+        state_id INTEGER,
         FOREIGN KEY (user_id) REFERENCES Users(id),
         FOREIGN KEY (product_id) REFERENCES Products(id),
-        FOREIGN KEY (state) REFERENCES ProductStates(type_id)
+        FOREIGN KEY (state_id) REFERENCES ProductStates(type_id)
     )`);
 
     db.run(`CREATE TABLE IF NOT EXISTS ProductStates (

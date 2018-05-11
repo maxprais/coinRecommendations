@@ -1,11 +1,19 @@
-import { ACTION_TYPES } from '../consts/action-types';
+import { PRODUCT_ACTION_TYPES } from '../consts/action-types';
 import { HttpConnection } from '../common/connection/connection';
 import { ROUTES } from '../common/api/routes';
 import store from '../store/index';
 
 const connection = new HttpConnection();
 
-export const getShopProducts = () => {
-  return connection.sendHttp({ url: ROUTES.getAllProducts })
-    .then(allProducts => store.dispatch(({ type: ACTION_TYPES.GET_SHOP_PRODUCTS, payload: allProducts })));
+export const getShopProducts = async () => {
+  const allProducts = await connection.sendHttp({ url: ROUTES.getAllProducts });
+  store.dispatch(({ type: PRODUCT_ACTION_TYPES.GET_SHOP_PRODUCTS, payload: allProducts }));
+};
+
+export const chooseProduct = async (stateId, productId) => {
+  const notify = await connection.sendHttp({
+    url:  `${ROUTES.chooseProduct}/${1}/${productId}/${stateId}`,
+    method: 'POST'});
+
+  store.dispatch({ type: PRODUCT_ACTION_TYPES.CHOOSE_PRODUCT, payload: notify });
 };
