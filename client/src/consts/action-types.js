@@ -1,0 +1,3 @@
+export const ACTION_TYPES = {
+    GET_SHOP_PRODUCTS: 'GET_SHOP_PRODUCTS'
+};

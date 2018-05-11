@@ -32,13 +32,13 @@ db.serialize(() => {
     db.run(`INSERT INTO Users (name) VALUES ('John')`);
 
     db.run(`CREATE TABLE IF NOT EXISTS Products (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY,
         name TEXT,
         description VARCHAR(255)
     )`);
 
-    const productsStatement = db.prepare(`INSERT INTO Products (name, description) VALUES (?, ?)`);
-    PRODUCTS.forEach(product => productsStatement.run(product.name, product.description));
+    const productsStatement = db.prepare(`INSERT OR REPLACE INTO Products (id, name, description) VALUES (?, ?, ?)`);
+    PRODUCTS.forEach((product, index) => productsStatement.run(index, product.name, product.description));
     productsStatement.finalize();
 
     db.run(`CREATE TABLE IF NOT EXISTS UserProducts (
