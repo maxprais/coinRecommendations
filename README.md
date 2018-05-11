@@ -4,10 +4,12 @@ A hub for yulife users to use their YuCoins to manage, track and purchase benefi
 
 How to run it?
 ```
-git clone
+git clone https://github.com/maxprais/coinRecommendations.git
 ```
 Navigate to the root file
 
 ```
+npm install
+
 npm start
 ```
