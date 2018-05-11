@@ -7,9 +7,10 @@ const UserProductsDalService = require('../dal/userProductsDal');
 
 router.get(ROUTES.getProductsByUser, async (req, res, next) => {
     const userProductsDalService = new UserProductsDalService();
-    const allProducts = await userProductsDalService.getProductsByUser();
-
-    res.send(allProducts);
+    const { userId } = req.params;
+    const allProducts = await userProductsDalService.getProductsByUser(userId);
+    
+    res.json(allProducts);
 });
 
 router.post(ROUTES.chooseProduct, async (req, res, next) => {

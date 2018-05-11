@@ -2,6 +2,11 @@
   cursor: pointer;
   color: #ffffff;
   display: inline;
-  padding: 0 30px;
+  margin: 0 30px;
+  padding: 0 0 2px;
   text-transform: uppercase;
+}
+
+.tab.active {
+  border-bottom: 2px solid white;
 }

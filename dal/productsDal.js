@@ -8,7 +8,6 @@ class ProductsDalService {
       return new Promise((resolve, reject) => {
             db.serialize(() => {
                 db.all('SELECT id, name, description from Products', (err, products) => {
-                  console.log('products', products);
                   resolve(products);
                 });
             });

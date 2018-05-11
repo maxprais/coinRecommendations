@@ -7,11 +7,12 @@ export default class HeaderTabs extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { tabs: HEADER_TABS };
+    this.state = { tabs: HEADER_TABS, selectedTab: HEADER_TABS[0].id };
     this.onViewSelect = this.onViewSelect.bind(this);
   }
 
   onViewSelect(view) {
+    this.setState({ selectedTab: view });
     this.props.getView(view);
   }
 
@@ -19,7 +20,10 @@ export default class HeaderTabs extends React.Component {
     return (
       <div className="tabs-container">
         { this.state.tabs.map((tab, index) =>
-          <HeaderTab key={index} tab={tab} onViewSelect={this.onViewSelect} />) }
+          <HeaderTab key={index}
+                     tab={tab}
+                     selectedTab={this.state.selectedTab}
+                     onViewSelect={this.onViewSelect} />) }
       </div>
     )
   }

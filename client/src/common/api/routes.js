@@ -3,6 +3,6 @@ export const ROUTES = {
   getAllProducts: '/api/products',
   getProductById: '/api/products/:productId',
   getProductsByState: '/api/products/:stateId',
-  getProductsByUser: '/api/products/:userId',
+  getProductsByUser: '/api/products',
   chooseProduct: '/api/products/choose'
 };

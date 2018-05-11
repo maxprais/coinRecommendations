@@ -8,8 +8,8 @@ const ProductsDalService = require('../dal/productsDal');
 router.get(ROUTES.getAllProducts, async (req, res, next) => {
     const productsDalService = new ProductsDalService();
     const allProducts = await productsDalService.getAllProducts();
-  console.log('return products', allProducts);
-  res.json(allProducts);
+
+    res.json(allProducts);
 });
 
 router.get(ROUTES.getProductById, async (req, res, next) => {
