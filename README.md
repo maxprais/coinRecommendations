@@ -9,5 +9,7 @@ git clone https://github.com/maxprais/coinRecommendations.git
 Navigate to the root file
 
 ```
+npm install
+
 npm start
 ```
