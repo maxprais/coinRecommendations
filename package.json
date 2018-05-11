@@ -15,6 +15,7 @@
     "http-errors": "~1.6.2",
     "lodash": "^4.17.10",
     "morgan": "~1.9.0",
+    "nodemon": "^1.17.4",
     "pug": "2.0.0-beta11",
     "react-router-dom": "^4.2.2",
     "sqlite3": "^4.0.0"
