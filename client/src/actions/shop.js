@@ -1,4 +1,4 @@
-import { PRODUCT_ACTION_TYPES, USER_ACTION_TYPES } from '../consts/action-types';
+import { PRODUCT_ACTION_TYPES } from '../consts/action-types';
 import { HttpConnection } from '../common/connection/connection';
 import { ROUTES } from '../common/api/routes';
 import store from '../store/index';

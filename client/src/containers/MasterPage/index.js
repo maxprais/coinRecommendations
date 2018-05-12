@@ -39,7 +39,8 @@ class MasterPageElm extends React.Component {
     return (
       <div>
         <HeaderTabs getView={this.getView} />
-        <ShopContainer shopItems={this.props.shopItems} />
+        <ShopContainer hideButtons={this.state.view !== HEADER_TABS[0].id}
+                       shopItems={this.props.shopItems} />
 
       </div>
     )

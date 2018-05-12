@@ -38,7 +38,7 @@ class ShopContainerElm extends React.Component {
     if (this.props.productChosen) {
       const message = this.state.selectedType === PRODUCT_SELECTION_TYPES.PURCHASED
         ? 'Nice! You can view this purchase in "My Benefits"'
-        : 'One for the future?! Return to it later in your wishlist';
+        : 'One for the future? Return to it later in your wishlist - This feature is coming soon';
 
       alert(message);
       this.props.resetAlert();
@@ -52,6 +52,7 @@ class ShopContainerElm extends React.Component {
           ? this.props.shopItems.map((value, index) =>
             <ShopItem key={index}
                       onSelectItem={this.onSelectItem}
+                      hideButtons={this.props.hideButtons}
                       item={value} />)
           : <p>Nothing chosen yet!</p>}
       </div>

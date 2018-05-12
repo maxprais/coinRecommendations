@@ -7,7 +7,7 @@ class UserProductsDalService {
   getProductsByUser(userId) {
     return new Promise((resolve, reject) => {
       db.serialize(() => {
-        db.all(`SELECT Products.id, Products.name, Products.description, UserProducts.product_id 
+        db.all(`SELECT DISTINCT Products.id, Products.name, Products.description, UserProducts.product_id 
         FROM UserProducts 
         JOIN Products ON Products.id = UserProducts.product_id 
         WHERE UserProducts.user_id = ?`, [userId], (err, products) => {
